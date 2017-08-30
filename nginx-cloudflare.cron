@@ -1,0 +1,7 @@
+# /etc/cron.d/nginx-cloudflare: crontab entries for nginx-cloudflare scripts
+
+SCRIPT=/usr/local/nginx-cloudflare/nginx-cloudflare.py
+CONFIG=/usr/local/nginx-cloudflare/config.ini
+PYTHON=/usr/bin/python3
+
+0 */12 * * * root	[ -x $PYTHON ] && if [ -x $SCRIPT ]; then $PYTHON $SCRIPT --config $CONFIG; fi

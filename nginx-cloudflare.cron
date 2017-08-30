@@ -4,4 +4,4 @@ SCRIPT=/usr/local/nginx-cloudflare/nginx-cloudflare.py
 CONFIG=/usr/local/nginx-cloudflare/config.ini
 PYTHON=/usr/bin/python3
 
-0 */12 * * * root	[ -x $PYTHON ] && if [ -x $SCRIPT ]; then $PYTHON $SCRIPT --config $CONFIG; fi
+0 */12 * * * root [ -x $PYTHON ] && [ -r $SCRIPT ] && if $PYTHON $SCRIPT --config $CONFIG; then service nginx reload; fi
